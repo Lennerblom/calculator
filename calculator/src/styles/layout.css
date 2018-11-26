@@ -1,0 +1,32 @@
+.container {
+    display: grid;
+    margin-left: 2em;
+    grid-template-columns: 25px 50px 50px 50px 50px 25px;
+    grid-template-rows: 25px 25px 25px 25px 25px 25px;
+    border: solid black 1px;
+}
+
+.container2 {
+    grid-template: 
+      [row1-start] "header header header" 25px [row1-end]
+      [row2-start] "footer footer footer" 25px [row2-end]
+}
+
+/* .item {
+    grid-column-start: 
+} */
+/* div {
+    border: solid red 1px;
+} */
+.row {
+    height: 25px;
+}
+.display {
+    background: gray;
+}
+.keys {
+    display: grid;
+}
+input {
+    text-align: end;
+}
