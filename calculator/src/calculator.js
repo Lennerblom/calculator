@@ -10,66 +10,83 @@ export default class Calculator extends Component {
             opp: '',
         }
     }
-calFunction = (e) => {
-    console.log(e.target.value, e.target.name);
-    if(e.target.value === "operator"){
-      if(e.target.name === "add"){
-   let a = this.state.display;
-   this.setState({display: 0});
-    console.log('add', a);
-    }
-    if(e.target.name === "subtract"){
-    console.log('subtract');
-    }
-    if(e.target.name === "multiply"){
-    console.log('multiply');
-    }
-    if(e.target.name === "divide"){
-    console.log('divide');
-  }
-}
-   else if(e.target.name === "equals"){
-      let a = 7;
-      let b = this.state.display;
-      this.setState({display: this._add(a,b)});
-  }
+
+//   _number = (e) => {
+//         let num = e.target.value;
+//         console.log('number', num);
+//         if(this.state.display === 0){
+//             this.setState({display: num});
+//         }
+//         else {
+//         this.setState({display: this.state.display + num});
+//         }
+//     }
+
+  _add = (a,b) => {
+        return parseInt(a) + parseInt(b);
+        }
+  _sub = (a,b) => {
+          return a - b;
+      }
+  _mult = (a,b) => {
+        return a * b;
+      }
+  _div = (a,b) => {
+          return a/b;
+      }
+
+  calFunction = (e) => {
+  console.log(e.target.value, e.target.name);
 
   if(e.target.name === 'numbers'){
-      let num = e.target.value;
-      console.log('number', num);
-      if(this.state.display === 0){
-          this.setState({display: num});
+    let num = e.target.value;
+    this.setState({display: num});
+    if(this.state.a === 0) {
+        this.setState({a: num});
+    }
+    else {
+        this.setState({b: num})
+    }
+    }
+
+  if(e.target.value === "operator"){
+      if(e.target.name === "add"){
+        this.setState({opp: 'add'});
       }
-      else {
-      this.setState({display: this.state.display + num});
+      if(e.target.name === "subtract"){
+        this.setState({opp: 'subtract'});
+      }
+      if(e.target.name === "multiply"){
+            this.setState({opp: 'multiply'});
+      }
+      if(e.target.name === "divide"){
+            this.setState({opp: 'divide'});
       }
   }
-    else if(e.target.name === "clear") {
+   if(e.target.name === "equals"){
+     if(this.state.opp === "add"){
+        let answer = this._add(this.state.a,this.state.b)
+        this.setState({display: answer});
+        console.log(this.state.display);
+     }
+     if(this.state.opp === "subtract"){
+        this.setState({display: this._sub(this.state.a,this.state.b)});
+     }
+     if(this.state.opp === "multiply"){
+        this.setState({display: this._mult(this.state.a,this.state.b)});
+     }
+     if(this.state.opp === "divide"){
+        this.setState({display: this._div(this.state.a,this.state.b)});
+     }
+      
+  }
+
+   if(e.target.name === "clear") {
       this.setState({display: 0});
   }
 }
-_number = (e) => {
-    let num = e.target.value;
-    console.log('number', num);
-    if(this.state.display === 0){
-        this.setState({display: num});
-    }
-    else {
-    this.setState({display: this.state.display + num});
-    }
-}
-    _add = (a,b) => {
-        return parseInt(a) + parseInt(b);
-        }
-      _sub = (a,b) => {
-          return a - b;
-      }
-      _mult = (a,b) => {
-        return a * b;
-      }
-      _div = (a,b) => {
-          return a/b;
-      }
+
+
 //onClick={this._number}
     render() {
         return (
@@ -82,7 +99,7 @@ _number = (e) => {
                   <button value="operator" name="multiply">*</button>
                   <button value="operator" name="divide">/</button>
                 </div>
-                <div name="numbers" onClick={this._number}> 
+                <div name="numbers"> 
                   <button name={7} value={7}>7</button>
                   <button value={8}>8</button>
                   <button value={9}>9</button>
