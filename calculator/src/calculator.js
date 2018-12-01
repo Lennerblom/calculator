@@ -109,29 +109,26 @@ _operator = (e) => {
   // if(e.target.name === 'equals'){
      if(this.state.opp === '+'){
         let answer = this._add(this.state.a,this.state.b)
-        this.setState({display: answer});
-        this.setState({opp: ''});
+        this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
         console.log('display', this.state.display);
      }
      if(this.state.opp === '-'){
          console.log('a,b', this.state.a,this.state.b)
         // this.setState({display: this._sub(this.state.a,this.state.b)});
         let answer = this._sub(this.state.a,this.state.b)
-        this.setState({display: answer});
-        this.setState({opp: ''});
+        this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
      if(this.state.opp === '*'){
         // this.setState({display: this._mult(this.state.a,this.state.b)});
         let answer = this._mult(this.state.a,this.state.b)
-        this.setState({display: answer});
-        this.setState({opp: ''});
+        this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
      if(this.state.opp === '/'){
         // this.setState({display: this._div(this.state.a,this.state.b)});
         let answer = this._div(this.state.a,this.state.b)
-        this.setState({display: answer});
-        this.setState({opp: ''});
+        this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
+     //this.setState({a: this.state.display, b: 0, opp: 'opp'});
       
   }
   _clear = () => {
