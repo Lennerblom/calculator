@@ -4,10 +4,11 @@ export default class Calculator extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            display: 0,
-            a: 0,
-            b: 0,
+            display: 0.0,
+            a: 0.0,
+            b: 0.0,
             opp: 'opp',
+            decimal: false,
         }
     }
 
@@ -56,6 +57,13 @@ export default class Calculator extends Component {
   //calFunction = (e) => {
     _number = (e) => {
   console.log('value, name', e.target.value, e.target.name);
+   if(e.target.value === ".") {
+       if(this.state.decimal === false) {
+           
+           this.setState({display: this.state.display + e.target.value, decimal: true});
+       }
+       else {return};
+   }
   if(this.state.opp === 'opp'){
     let numA = e.target.value;
     console.log('numA=', numA);
@@ -85,10 +93,18 @@ export default class Calculator extends Component {
         // this.setState({b: this.state.display})
         // console.log('b', this.state.b);
     }
+
+// _decimal = (e) => {
+//     let dec = e.target.value
+//     if(this.state.decimal === false){
+//         this.setState({display: this.state.display + dec});
+
+//     }
 }
+
 _operator = (e) => {
   if(e.target.value === 'operator'){
-      //this.setState({display: e.target.name});
+      this.setState({decimal: false});
       if(e.target.name === '+'){
         this.setState({opp: '+'});
       }
@@ -141,45 +157,50 @@ _operator = (e) => {
 
 //onClick={this._number}
     render() {
+
 //         const numbers = [1, 2, 3, 4, 5];
 // const listItems = numbers.map((number) =>
 //   <li>{number}</li>
 // );
         return (
-            <div className="calculator">
-              <div className="display" value={this.state.display}>Display {this.state.display}</div>
-              <div>A {this.state.a}</div>
-              <div>B {this.state.b}</div>
-              <div>Operator {this.state.opp}</div>
-              <div className="keys" onClick={this.calFunction}>
-                <div className="operator" onClick={this._operator}>
-                  <button value="operator" name="+">+</button>
-                  <button value="operator" name="-">-</button>
-                  <button value="operator" name="*">*</button>
-                  <button value="operator" name="/">/</button>
+          <div className="calculator container5">
+            <div className="display" value={this.state.display}>Display {this.state.display}</div>
+            {/* <div>A {this.state.a}</div>
+            <div>B {this.state.b}</div>
+            <div>Operator {this.state.opp}</div> */}
+            {/* <div className="keys" onClick={this.calFunction}> */}
+                <div className="operator row1 container5" onClick={this._operator}>
+                  <button id="plus" value="operator" name="+">+</button>
+                  <button id="minus" value="operator" name="-">-</button>
+                  <button id="multiply" value="operator" name="*">*</button>
+                  <button id="divide" value="operator" name="/">/</button>
                 </div>
-                <div name="numbers" onClick={this._number}> 
+                <div className="row2 container5" name="numbers" onClick={this._number}> 
                   <button value={7}>7</button>
                   <button value={8}>8</button>
                   <button value={9}>9</button>
-                <div>
+                </div>
+                <div className="row3 container5" onClick={this._number}>
                   <button value={4}>4</button>
                   <button value={5}>5</button>
                   <button value={6}>6</button>
                 </div>
-                <div>
+                <div className="row4 container5" onClick={this._number}>
                   <button value={1}>1</button>
                   <button value={2}>2</button>
                   <button value={3}>3</button>
                 </div>
-                  <button value={0}>0</button>
-                  <button value=".">.</button>
+                <div className="row5 container5" >
+                  <button onClick={this._number} value={0}>0</button>
+                  <button onClick={this._number} value='.'>.</button>
+                {/* </div>
+                <div className="row5 container5 item2"> */}
+                  <button name="clear" onClick={this._clear} value={0}>AC</button>
+                  <button name="equals" onClick={this._equals} value={"="}>=</button>
                 </div>
-                <button name="clear" onClick={this._clear} value={0}>AC</button>
-                <button name="equals" onClick={this._equals} value={"="}>=</button>
-              </div>
+            {/* </div> */}
               {/* <ul>{listItems}</ul> */}
-            </div>
+        </div>
         );
     }
 }
