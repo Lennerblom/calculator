@@ -51,10 +51,13 @@ _number = (e) => {
     if(this.state.opp !== 'opp') {
         let numB = e.target.value;
         console.log('numB', numB);
+        if(this.state.b === 0){
         this.setState({display: numB});
         this.setState({b: numB});
-        if(this.state.b !== 0){
+        }
+        else {
             this.setState({b: this.state.b + numB});
+            this.setState({display: this.state.display + numB})
         }
     }
 }
