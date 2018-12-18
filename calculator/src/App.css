@@ -1,5 +1,33 @@
 .App {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  grid-auto-rows: 250px;
+  grid-template-rows: 50px, 250px, 250px;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+h1 {
+  text-align: center;
+}
+.calcOne {
+  grid-column: 1;
+  grid-row: 2;
+  background-color: blue;
+}
+.calc2 {
+  grid-column: 1;
+  grid-row: 3;
+}
+.calc3 {
+  grid-column: 2;
+  grid-row: 2;
+}
+.calc4 {
+  grid-column: 2;
+  grid-row: 3;
 }
 
 .App-logo {

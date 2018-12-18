@@ -21,12 +21,15 @@
   }
 
   .container5{
+    background: #888;
       max-width: 400px;
     margin-left: 1em;
+    margin-bottom: 2em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
-    grid-auto-rows: minmax(25px, 45px)
+    grid-auto-rows: minmax(25px, 45px);
+    grid-template-rows: 60px 45px 45px 45px 45px 45px;
 }
 .display {
     grid-column: 1/5;
@@ -34,27 +37,32 @@
     background: #555;
     border: ridge darkgrey;
     text-align: end;
-    font-size: 32px;
+    font-size: 48px;
     padding-right: 1em;
     color: lawngreen;
-
+}
+button {
+    font-size: 22px;
 }
 #plus {
     grid-column: 1;
     grid-row: 2;
-    color: red;
+    background: #999;
 }
 #minus {
     grid-column: 2;
     grid-row: 2;
+    background: #999;
 }
 #multiply {
     grid-column: 3;
     grid-row: 2;
+    background: #999;
 }
 #divide {
     grid-column: 4;
     grid-row: 2;
+    background: #999;
 }
 #one {
     grid-column: 1;
@@ -104,13 +112,20 @@
     grid-column: 3;
     grid-row: 6;
 }
+#percent{
+    grid-column: 4;
+    grid-row: 3;
+}
 #equals {
     grid-column: 4;
-    grid-row: 3/7;
+    grid-row: 4/7;
     background: orange;
 }
 
-
+.calculator2 {
+    margin-top: 2em;
+   
+}
 /* .item {
     grid-column-start: 
 } */
