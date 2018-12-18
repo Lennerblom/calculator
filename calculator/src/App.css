@@ -1,5 +1,42 @@
 .App {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: 320px;
+  justify-items: stretch;
+  /* grid-template-rows: 250px, 250px; */
   text-align: center;
+
+
+}
+h1 {
+  text-align: center;
+  height: 25px;
+
+}
+.calc1 {
+  grid-column: 1;
+  grid-row: 1;
+  /* align-self: center; */
+  background-color: blue;
+}
+.calc2 {
+  grid-column: 1;
+  grid-row: 2;
+  /* place-self: center; */
+  background-color: red;
+}
+.calc3 {
+  grid-column: 2;
+  grid-row: 1;
+  /* justify-self: center; */
+  background-color: yellow;
+}
+.calc4 {
+  grid-column: 2;
+  grid-row: 2;
+  /* align-self: end; */
+  background-color: green;
 }
 
 .App-logo {

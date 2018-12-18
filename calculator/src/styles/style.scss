@@ -1,0 +1,21 @@
+//global vars
+$primary: #444;
+$secondary: #888;
+$dimension: 100px;
+$timing: 1s all;
+$flippy: rotate(1080deg);//something missing
+$radius: 10em;
+div {
+  background: $primary;
+  width: $dimension;
+  height: $dimension;
+  transition: $timing;
+  border-radius: $radius;
+  
+  &:hover{
+    background: red;
+    transform: $flippy;
+    width: $dimension * 4;
+    
+  }
+}

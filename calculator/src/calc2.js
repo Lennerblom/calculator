@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './styles/layout.css';
+//import './styles/style.scss';
+import numeral from 'numeral';
 export default class Calc2 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            display: 0.0,
+            display: 0,
             a: 0.0,
             b: 0.0,
             opp: 'opp',
@@ -24,6 +26,11 @@ export default class Calc2 extends Component {
   _div = (a,b) => {
           return a/b;
       }
+ _percent = (a) => {
+     return a/100
+ }
+
+//  Number.toFixed(10), may be able to use this for numbers after decimal
 
 _number = (e) => {
   console.log('value, name', e.target.value, e.target.name);
@@ -36,6 +43,7 @@ _number = (e) => {
    }
   if(this.state.opp === 'opp'){
     let numA = e.target.value;
+    //numA = numeral(numA);
     console.log('numA=', numA);
     if(this.state.display === 0){
         this.setState({display: numA});
@@ -49,7 +57,7 @@ _number = (e) => {
     }
   }
     if(this.state.opp !== 'opp') {
-        let numB = e.target.value;
+        let numB = e.target.value.toFixed(10);
         console.log('numB', numB);
         if(this.state.b === 0){
         this.setState({display: numB});
@@ -76,6 +84,9 @@ _operator = (e) => {
       if(e.target.name === '/'){
             this.setState({opp: '/'});
       }
+      if(e.target.name === '%'){
+        this.setState({opp: '%'});
+  }
       console.log('operator', this.state.opp);
   }
 }
@@ -99,6 +110,10 @@ _operator = (e) => {
         let answer = this._div(this.state.a,this.state.b)
         this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
+     if(this.state.opp === '%'){
+        let answer = this._percent(this.state.a)
+        this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
+     }
 
       
   }
@@ -116,8 +131,9 @@ _operator = (e) => {
 
                   <button onClick={this._operator} id="plus" value="operator" name="+">+</button>
                   <button onClick={this._operator} id="minus" value="operator" name="-">-</button>
-                  <button onClick={this._operator} id="multiply" value="operator" name="*">*</button>
+                  <button onClick={this._operator} id="multiply" value="operator" name="*">x</button>
                   <button onClick={this._operator} id="divide" value="operator" name="/">/</button>
+                  <button name="%" onClick={this._operator} id="percent" value={"operator"}>%</button>
                   <button onClick={this._number} id="seven" value={7}>7</button>
                   <button onClick={this._number} id="eight" value={8}>8</button>
                   <button onClick={this._number} id="nine" value={9}>9</button>
