@@ -9,10 +9,11 @@ class App extends Component {
       <Fragment>
       <h1>Calculator</h1>
       <div className="App">
-        <Calc2 className="calcOne"/>
-        <Calc2 className="calculator2 calc2"/>
-        <Calc2 className="calc3"/>
-        <Calc2 className="calculator2 calc4"/>
+      <div className="calc1"><Calc2/></div>
+        <div className="calc2"><Calc2/></div>
+        <div className="calc3"><Calc2/></div>
+        <div className="calc4"><Calc2/></div>
+        
       </div>
       </Fragment>
     );
