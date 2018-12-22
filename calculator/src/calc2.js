@@ -15,19 +15,21 @@ export default class Calc2 extends Component {
     }
 
   _add = (a,b) => {
-        return parseInt(a) + parseInt(b);
+    a = numeral(a);
+    b = numeral(b);
+    return  a.value() + b.value();
         }
   _sub = (a,b) => {
-          return a - b;
+    return a - b;
       }
   _mult = (a,b) => {
-        return a * b;
+    return a * b;
       }
   _div = (a,b) => {
-          return a/b;
+    return a/b;
       }
  _percent = (a) => {
-     return a/100
+    return a/100
  }
 
 //  Number.toFixed(10), may be able to use this for numbers after decimal
@@ -43,8 +45,6 @@ _number = (e) => {
    }
   if(this.state.opp === 'opp'){
     let numA = e.target.value;
-    //numA = numeral(numA);
-    console.log('numA=', numA);
     if(this.state.display === 0){
         this.setState({display: numA});
         this.setState({a: numA});
@@ -53,12 +53,11 @@ _number = (e) => {
       numA = this.state.display + numA;
       this.setState({display: numA});
       this.setState({a: numA});
-      console.log('numA=', numA);
+
     }
   }
     if(this.state.opp !== 'opp') {
-        let numB = e.target.value.toFixed(10);
-        console.log('numB', numB);
+        let numB = e.target.value;   //.toFixed(10);
         if(this.state.b === 0){
         this.setState({display: numB});
         this.setState({b: numB});
@@ -70,6 +69,7 @@ _number = (e) => {
     }
 }
 _operator = (e) => {
+    this.setState({decimal: false});
   if(e.target.value === 'operator'){
       this.setState({decimal: false});
       if(e.target.name === '+'){
@@ -87,31 +87,28 @@ _operator = (e) => {
       if(e.target.name === '%'){
         this.setState({opp: '%'});
   }
-      console.log('operator', this.state.opp);
   }
 }
   _equals = () => {
-
+    this.setState({decimal: false});
      if(this.state.opp === '+'){
-        let answer = this._add(this.state.a,this.state.b)
+        let answer = this._add(this.state.a,this.state.b);
         this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
-        console.log('display', this.state.display);
      }
      if(this.state.opp === '-'){
-         console.log('a,b', this.state.a,this.state.b)
-        let answer = this._sub(this.state.a,this.state.b)
+        let answer = this._sub(this.state.a,this.state.b);
         this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
      if(this.state.opp === '*'){
-        let answer = this._mult(this.state.a,this.state.b)
+        let answer = this._mult(this.state.a,this.state.b);
         this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
      if(this.state.opp === '/'){
-        let answer = this._div(this.state.a,this.state.b)
+        let answer = this._div(this.state.a,this.state.b);
         this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
      if(this.state.opp === '%'){
-        let answer = this._percent(this.state.a)
+        let answer = this._percent(this.state.a);
         this.setState({display: answer, a: answer, b: 0, opp: 'opp'});
      }
 
