@@ -17,16 +17,16 @@ export default class Calc2 extends Component {
   _add = (a,b) => {
     a = numeral(a);
     b = numeral(b);
-    return  a.value() + b.value();
+    return  (a.value() + b.value()).toFixed(8);
         }
   _sub = (a,b) => {
-    return a - b;
+    return (a - b).toFixed(8);
       }
   _mult = (a,b) => {
-    return a * b;
+    return (a * b).toFixed(8);
       }
   _div = (a,b) => {
-    return a/b;
+    return (a/b).toFixed(8);
       }
  _percent = (a) => {
     return a/100

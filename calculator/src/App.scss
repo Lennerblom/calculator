@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 15px;
   /* grid-auto-rows: 320px; */
   justify-items: stretch;
   //grid-template-rows: 80px, 320px, 320px;
