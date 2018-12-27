@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: grid;
     margin-left: 2em;
     grid-template-columns: 25px 50px 50px 50px 50px 25px;
@@ -18,18 +18,21 @@
     grid-template-areas: 
       "header header header" 
       "footer footer footer";
-  }
+  } */
 
   .container5{
     background: #888;
+    /* width: 32%; */
       max-width: 400px;
-    margin-left: 1em;
-    margin-bottom: 2em;
+    /* margin-left: 1em;
+    margin-bottom: 2em; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
     grid-auto-rows: minmax(25px, 45px);
     grid-template-rows: 60px 45px 45px 45px 45px 45px;
+    /* align-items: center;
+    justify-content: center; */
 }
 .display {
     grid-column: 1/5;

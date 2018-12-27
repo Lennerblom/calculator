@@ -123,7 +123,7 @@ _operator = (e) => {
     render() {
 
         return (
-          <div className="calculator container5">
+          <div className="container5">
             <div className="display" value={this.state.display}>{this.state.display}</div>
 
                   <button onClick={this._operator} id="plus" value="operator" name="+">+</button>
@@ -131,6 +131,7 @@ _operator = (e) => {
                   <button onClick={this._operator} id="multiply" value="operator" name="*">x</button>
                   <button onClick={this._operator} id="divide" value="operator" name="/">/</button>
                   <button name="%" onClick={this._operator} id="percent" value={"operator"}>%</button>
+                  {/* <div onClick={this._number}> */}
                   <button onClick={this._number} id="seven" value={7}>7</button>
                   <button onClick={this._number} id="eight" value={8}>8</button>
                   <button onClick={this._number} id="nine" value={9}>9</button>
@@ -142,6 +143,7 @@ _operator = (e) => {
                   <button onClick={this._number} id="three" value={3}>3</button>
                   <button onClick={this._number} id="zero" value={0}>0</button>
                   <button onClick={this._number} id="period" value='.'>.</button>
+                  {/* </div> */}
                   <button name="clear" onClick={this._clear} id="clear" value={0}>AC</button>
                   <button name="equals" onClick={this._equals} id="equals" value={"="}>=</button>
 
