@@ -125,7 +125,6 @@ _operator = (e) => {
         return (
           <div className="container5">
             <div className="display" value={this.state.display}>{this.state.display}</div>
-
                   <button onClick={this._operator} id="plus" value="operator" name="+">+</button>
                   <button onClick={this._operator} id="minus" value="operator" name="-">-</button>
                   <button onClick={this._operator} id="multiply" value="operator" name="*">x</button>

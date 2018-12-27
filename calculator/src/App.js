@@ -7,8 +7,9 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-      <h1>Calculator</h1>
+      
       <div className="App">
+        <h1>Calculator</h1>
         <div className="calc_container blue">
           <div><Calc2/></div>
         </div>
