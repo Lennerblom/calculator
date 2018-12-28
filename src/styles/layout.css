@@ -41,11 +41,11 @@
     border: ridge darkgrey;
     text-align: end;
     font-size: 48px;
-    padding: 0em .25em 0em .25em;
+    padding: 0em .125em 0em .125em;
     color: lawngreen;
-    text-overflow: initial;
+    /* text-overflow: initial;
     overflow: scroll;
-    white-space: initial;
+    white-space: initial; */
 }
 button {
     font-size: 22px;
