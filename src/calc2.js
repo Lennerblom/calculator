@@ -17,16 +17,48 @@ export default class Calc2 extends Component {
   _add = (a,b) => {
     a = numeral(a);
     b = numeral(b);
-    return  a.value() + b.value();
+    let fixed = 0;
+    let sum = a.value() + b.value();
+    if(Math.ceil(Math.log10(sum + 1)) < 9) {
+    fixed = 9 - (Math.ceil(Math.log10(sum + 1)));
+    return  (a.value() + b.value()).toFixed(fixed);
+    }
+    else {
+      return sum;
+    }
         }
   _sub = (a,b) => {
-    return a - b;
+    let fixed = 0;
+    let sub = (a - b);
+    if(Math.ceil(Math.log10(sub + 1)) < 9) {
+      fixed = 9 - (Math.ceil(Math.log10(sub + 1)));
+    return (a - b).toFixed(fixed);
+    }
+    else {
+      return sub;
+    }
       }
   _mult = (a,b) => {
-    return a * b;
+    let fixed = 0;
+    let mult = (a * b);
+    if(Math.ceil(Math.log10(mult + 1)) < 9) {
+      fixed = 9 - (Math.ceil(Math.log10(mult + 1)));
+    return (a * b).toFixed(fixed);
+    }
+    else {
+      return mult;
+    }
       }
   _div = (a,b) => {
-    return a/b;
+    let fixed = 0;
+    let divide = (a/b);
+    if(Math.ceil(Math.log10(divide + 1)) < 9) {
+      fixed = 9 - (Math.ceil(Math.log10(divide + 1)));
+    return (a/b).toFixed(fixed);
+    }
+    else {
+      return divide;
+    }
       }
  _percent = (a) => {
     return a/100
